@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DepotOnAspNetMvc3WithRavenDB.Models.Product>
+
+<p>
+    @Html.ActionLink("Create New", "New")
+</p>
+<table>
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            ImageUrl
+        </th>
+        <th>
+            Price
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var product in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => product.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => product.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => product.ImageUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => product.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Show", "Show", new { id=product.Id }) |
+            @Html.ActionLink("Edit", "Edit", new { id=product.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=product.Id })
+        </td>
+    </tr>
+}
+
+</table>

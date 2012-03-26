@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
+using DepotOnAspNetMvc3WithRavenDB.Configuration;
+using DepotOnAspNetMvc3WithRavenDB.Filters;
 
 namespace DepotOnAspNetMvc3WithRavenDB
 {
@@ -15,6 +13,7 @@ namespace DepotOnAspNetMvc3WithRavenDB
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new RavenDocumentSessionAttribute());
         }
 
         public static void RegisterRoutes(RouteCollection routes)
@@ -35,6 +34,9 @@ namespace DepotOnAspNetMvc3WithRavenDB
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            var container = Bootstrapper.Bootstrap();
+            ControllerBuilder.Current.SetControllerFactory(new StructureMapControllerFactory(container));
         }
     }
 }
