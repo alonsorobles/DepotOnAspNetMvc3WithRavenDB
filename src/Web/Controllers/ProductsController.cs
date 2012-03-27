@@ -68,5 +68,12 @@ namespace Depot.Web.Controllers
             var product = _session.Load<Product>(id);
             return View(product);
         }
+
+        public ActionResult Delete(int id)
+        {
+            var product = _session.Load<Product>(id);
+            _session.Delete(product);
+            return RedirectToAction("Index");
+        }
     }
 }
