@@ -88,7 +88,7 @@
     <Compile Include="Configuration\StructureMapControllerFactory.cs" />
     <Compile Include="Configuration\UserInterfaceRegistry.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="DataAnnotations\MinimumValueAttribute.cs" />
+    <Compile Include="DataAnnotations\GreaterThanOrEqualToAttribute.cs" />
     <Compile Include="Filters\RavenDocumentSessionAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -17,8 +17,7 @@ namespace Depot.Web.Models
 
         public string ImageUrl { get; set; }
         
-        [Required]
-        [MinimumValue(typeof(decimal), "0.01", "Should be at least 0.01.")]
+        [GreaterThanOrEqualTo(typeof(decimal), "0.01")]
         public decimal Price { get; set; }
     }
 }
