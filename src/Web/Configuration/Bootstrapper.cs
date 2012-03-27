@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using StructureMap;
 
-namespace DepotOnAspNetMvc3WithRavenDB.Configuration
+namespace Depot.Web.Configuration
 {
     public class Bootstrapper
     {

@@ -1,9 +1,8 @@
 ﻿using Raven.Client;
 using Raven.Client.Document;
-using Raven.Client.Extensions;
 using StructureMap.Configuration.DSL;
 
-namespace DepotOnAspNetMvc3WithRavenDB.Configuration
+namespace Depot.Web.Configuration
 {
     public class UserInterfaceRegistry : Registry
     {

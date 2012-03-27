@@ -1,4 +1,4 @@
-﻿namespace DepotOnAspNetMvc3WithRavenDB.Models
+﻿namespace Depot.Web.Models
 {
     public class Product
     {

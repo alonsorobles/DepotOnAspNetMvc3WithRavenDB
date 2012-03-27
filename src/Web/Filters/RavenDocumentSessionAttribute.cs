@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Web.Mvc;
-using DepotOnAspNetMvc3WithRavenDB.Configuration;
+using Depot.Web.Configuration;
 using Raven.Client;
 
-namespace DepotOnAspNetMvc3WithRavenDB.Filters
+namespace Depot.Web.Filters
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = true)]
     public class RavenDocumentSessionAttribute : FilterAttribute, IActionFilter

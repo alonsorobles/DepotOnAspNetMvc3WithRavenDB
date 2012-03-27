@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
-using DepotOnAspNetMvc3WithRavenDB.Configuration;
-using DepotOnAspNetMvc3WithRavenDB.Filters;
+using Depot.Web.Configuration;
+using Depot.Web.Filters;
 
-namespace DepotOnAspNetMvc3WithRavenDB
+namespace Depot.Web
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
