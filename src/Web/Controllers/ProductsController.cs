@@ -75,5 +75,15 @@ namespace Depot.Web.Controllers
             _session.Delete(product);
             return RedirectToAction("Index");
         }
+
+        public ActionResult ValidateUniqueTitle(string title)
+        {
+            if (!string.IsNullOrWhiteSpace(title))
+            {
+                var isUniqueTitle = !_session.Query<Product>().Any(p => p.Title == title.Trim());
+                return Json(isUniqueTitle, JsonRequestBehavior.AllowGet);
+            }
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
     }
 }
