@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using Depot.Web.Extensions;
 using Depot.Web.Filters;
+using Depot.Web.Helpers;
 using Depot.Web.Models;
 using Raven.Client;
 
@@ -36,8 +38,8 @@ namespace Depot.Web.Controllers
             }
 
             _session.Store(product);
-            
-            return RedirectToAction("Index");
+
+            return RedirectToAction("Index").WithFlash(FlashMessageType.Notice, "Product was successfully created.");
         }
 
         public ActionResult Edit(int id)
@@ -60,7 +62,7 @@ namespace Depot.Web.Controllers
             existingProduct.Price = product.Price;
             existingProduct.Title = product.Title;
 
-            return RedirectToAction("Show", new {id = product.Id});
+            return RedirectToAction("Show", new {id = product.Id}).WithFlash(FlashMessageType.Notice, "Product was successfully updated.");
         }
 
         public ActionResult Show(int id)
@@ -73,7 +75,7 @@ namespace Depot.Web.Controllers
         {
             var product = _session.Load<Product>(id);
             _session.Delete(product);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index").WithFlash(FlashMessageType.Notice, "Product was successfully deleted.");
         }
 
         public ActionResult ValidateUniqueTitle(string title)

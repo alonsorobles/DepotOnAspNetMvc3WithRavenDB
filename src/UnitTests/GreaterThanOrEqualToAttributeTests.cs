@@ -11,7 +11,6 @@ namespace UnitTests
     [TestFixture]
     public class GreaterThanOrEqualToAttributeTests
     {
-        private bool _actualResult;
         private GreaterThanOrEqualToAttribute _greaterThanOrEqualToAttribute;
         private ValidationContext _validationContext;
         private TestDelegate _validationDelegate;

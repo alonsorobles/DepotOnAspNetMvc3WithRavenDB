@@ -89,10 +89,12 @@
     <Compile Include="Configuration\UserInterfaceRegistry.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="DataAnnotations\GreaterThanOrEqualToAttribute.cs" />
+    <Compile Include="Extensions\ActionResultExtensions.cs" />
     <Compile Include="Filters\RavenDocumentSessionAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FlashMessageHelper.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -139,6 +141,7 @@
   <ItemGroup>
     <Content Include="Views\Products\Show.cshtml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
