@@ -46,11 +46,11 @@ h1 {
   padding-left: 1em;
 }
 
-#product-list .list-line-even {
+#product-list tr:nth-child(even){
   background:   #e0f8f8;
 }
 
-#product-list .list-line-odd {
+#product-list tr:nth-child(odd) {
   background:   #f8b0f8;
 }
 
