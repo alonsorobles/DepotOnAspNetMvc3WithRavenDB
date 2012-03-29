@@ -73,3 +73,13 @@ textarea
 {
     display: none;
 }
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+#flash {
+    
+}
+
+#flash.notice {
+    color: green;
+}

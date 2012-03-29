@@ -36,7 +36,7 @@ namespace Depot.Web.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult New(ProductEditModel productEditModel)
         {
             if (!ModelState.IsValid)
@@ -56,7 +56,7 @@ namespace Depot.Web.Controllers
             return AutoMapView<ProductEditModel>(product, View());
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Edit(ProductEditModel productEditModel)
         {
             if (!ModelState.IsValid)

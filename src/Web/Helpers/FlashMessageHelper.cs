@@ -35,6 +35,7 @@ namespace Depot.Web.Helpers
             foreach (var message in messages)
             {
                 var tagBuilder = new TagBuilder(tagName);
+                tagBuilder.Attributes.Add("id", "flash");
                 tagBuilder.Attributes.Add("class", tagClass);
                 tagBuilder.SetInnerText(message);
                 html += tagBuilder.ToString();

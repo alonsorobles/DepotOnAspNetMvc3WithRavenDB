@@ -103,6 +103,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\depot.css" />
+    <Content Include="Content\Images\auto.jpg" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\rails.png" />
+    <Content Include="Content\Images\svn.jpg" />
+    <Content Include="Content\Images\utc.jpg" />
     <Content Include="Content\reset.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
