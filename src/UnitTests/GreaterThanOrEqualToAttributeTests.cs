@@ -1,10 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq.Expressions;
-using Depot.Web.DataAnnotations;
+using Depot.DataAnnotations;
 using NUnit.Framework;
-using Rhino.Mocks;
-using StructureMap.AutoMocking;
 
 namespace UnitTests
 {

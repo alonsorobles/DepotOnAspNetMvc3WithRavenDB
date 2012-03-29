@@ -2,9 +2,8 @@ using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
-using System.Linq;
 
-namespace Depot.Web.DataAnnotations
+namespace Depot.DataAnnotations
 {
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
     public sealed class GreaterThanOrEqualToAttribute : ValidationAttribute
@@ -25,7 +24,7 @@ namespace Depot.Web.DataAnnotations
 
         public override string FormatErrorMessage(string name)
         {
-            return string.Format(ErrorMessageString, name, _minimumValue);
+            return string.Format(ErrorMessageString, (object) name, _minimumValue);
         }
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)

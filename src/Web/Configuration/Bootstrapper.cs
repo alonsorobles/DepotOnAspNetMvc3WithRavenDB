@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using Depot.Configuration;
+using Depot.Extensions;
 using StructureMap;
 
 namespace Depot.Web.Configuration
@@ -25,9 +27,16 @@ namespace Depot.Web.Configuration
                 if (Container != null)
                     return;
                 InitializeStructureMap();
+                ExecuteStartupTasks();
                 Debug.Assert(Container != null, "Container != null");
                 Debug.WriteLine(Container.WhatDoIHave());
             }
+        }
+
+        private static void ExecuteStartupTasks()
+        {
+            var startupTasks = Container.GetAllInstances<IStartupTask>();
+            startupTasks.Each(task => task.Execute());
         }
 
         private static void InitializeStructureMap()

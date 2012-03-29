@@ -4,9 +4,9 @@ using StructureMap.Configuration.DSL;
 
 namespace Depot.Web.Configuration
 {
-    public class UserInterfaceRegistry : Registry
+    public class WebRegistry : Registry
     {
-        public UserInterfaceRegistry()
+        public WebRegistry()
         {
             Scan(scanner =>
             {

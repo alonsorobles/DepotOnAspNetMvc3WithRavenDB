@@ -60,9 +60,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Web\Web.csproj">
-      <Project>{8335DB55-CAAE-4161-BDCA-D8C614458AEA}</Project>
-      <Name>Web</Name>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{C0BD5899-BB6D-4027-9ECC-56E583EBBBC5}</Project>
+      <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
