@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using Depot.Configuration;
 using Depot.Web.Configuration;
 using Depot.Web.Filters;
 

@@ -1,7 +1,6 @@
-﻿using Depot.Configuration;
-using StructureMap.Configuration.DSL;
+﻿using StructureMap.Configuration.DSL;
 
-namespace Depot.Web.Configuration
+namespace Depot.Configuration
 {
     public class CoreRegistry : Registry
     {
@@ -10,7 +9,7 @@ namespace Depot.Web.Configuration
             Scan(scanner =>
                      {
                          scanner.TheCallingAssembly();
-                         scanner.Assembly("Depot.Core");
+                         scanner.AssembliesFromApplicationBaseDirectory();
                          scanner.WithDefaultConventions();
                          scanner.AddAllTypesOf<IStartupTask>();
                      });

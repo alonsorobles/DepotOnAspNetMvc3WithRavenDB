@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
-using Depot.Web.Configuration;
+using Depot.Configuration;
 using Raven.Client;
 
 namespace Depot.Web.Filters

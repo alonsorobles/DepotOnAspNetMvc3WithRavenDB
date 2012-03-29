@@ -89,8 +89,6 @@
   <ItemGroup>
     <Compile Include="Configuration\AutoMapper\AutoMapperConfigurationStartUpTask.cs" />
     <Compile Include="Configuration\AutoMapper\ProductProfile.cs" />
-    <Compile Include="Configuration\Bootstrapper.cs" />
-    <Compile Include="Configuration\CoreRegistry.cs" />
     <Compile Include="Configuration\StructureMapControllerFactory.cs" />
     <Compile Include="Configuration\WebRegistry.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -148,6 +146,10 @@
     <Content Include="Views\Products\Show.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.Configuration\Core.Configuration.csproj">
+      <Project>{E4EA4684-51B7-4118-BABD-4A17159E4DA1}</Project>
+      <Name>Core.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{C0BD5899-BB6D-4027-9ECC-56E583EBBBC5}</Project>
       <Name>Core</Name>

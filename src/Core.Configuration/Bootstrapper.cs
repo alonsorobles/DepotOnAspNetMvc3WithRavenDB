@@ -1,9 +1,8 @@
 ﻿using System.Diagnostics;
-using Depot.Configuration;
 using Depot.Extensions;
 using StructureMap;
 
-namespace Depot.Web.Configuration
+namespace Depot.Configuration
 {
     public class Bootstrapper
     {
@@ -44,6 +43,7 @@ namespace Depot.Web.Configuration
             Container = new Container(configuration => configuration.Scan(scanner =>
             {
                 scanner.TheCallingAssembly();
+                scanner.AssembliesFromApplicationBaseDirectory();
                 scanner.LookForRegistries();
             }));
         }
