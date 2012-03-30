@@ -23,22 +23,4 @@ namespace Depot.Web.Models
         [GreaterThanOrEqualTo(typeof(decimal), "0.01")]
         public decimal Price { get; set; }
     }
-
-    public class ProductListModel
-    {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string ImageUrl { get; set; }
-        public decimal Price { get; set; }
-    }
-
-    public class ProductShowModel
-    {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string ImageUrl { get; set; }
-        public decimal Price { get; set; }
-    }
 }

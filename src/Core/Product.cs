@@ -18,6 +18,8 @@ namespace Depot
         public string ImageUrl { get; set; }
 
         [GreaterThanOrEqualTo(typeof(decimal), "0.01")]
+        [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal Price { get; set; }
     }
 }

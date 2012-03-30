@@ -1,0 +1,20 @@
+﻿@model Depot.Web.Models.ProductListModel[]
+
+@{
+    ViewBag.Title = "Your Pragmatic Catalog";
+    Layout = "_Store.cshtml";
+}
+
+<h1>Your Pragmatic Catalog</h1>
+@foreach(var product in Model)
+{
+    <div class="entry">
+        <img src="@product.ImageUrl" alt="@product.Title"/>
+        <h3>@product.Title</h3>
+        @Html.Raw(@product.Description)
+        <div class="price-line">
+            <span class="price">@Html.DisplayFor(modelItem => product.Price)</span>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+}

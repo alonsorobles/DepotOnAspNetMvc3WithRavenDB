@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
 using Depot.Web.Extensions;
@@ -11,7 +10,7 @@ using Raven.Client;
 namespace Depot.Web.Controllers
 {
     [RavenDocumentSession]
-    public class ProductsController: Controller
+    public class ProductsController: AutoMapperController
     {
         private readonly IDocumentSession _session;
 
@@ -24,11 +23,6 @@ namespace Depot.Web.Controllers
         {
             var products = _session.Query<Product>().ToArray();
             return AutoMapView<ProductListModel[]>(products, View());
-        }
-
-        private AutoMappedViewResult AutoMapView<TViewModel>(object source, ViewResult viewResult)
-        {
-            return new AutoMappedViewResult(source.GetType(), typeof (TViewModel), source, viewResult);
         }
 
         public ActionResult New()
@@ -95,29 +89,6 @@ namespace Depot.Web.Controllers
                 return Json(isUniqueTitle, JsonRequestBehavior.AllowGet);
             }
             return Json(true, JsonRequestBehavior.AllowGet);
-        }
-    }
-
-    public class AutoMappedViewResult : ActionResult
-    {
-        private readonly Type _sourceType;
-        private readonly Type _destinationType;
-        private readonly object _sourceObject;
-        private readonly ViewResult _viewResult;
-
-        public AutoMappedViewResult(Type sourceType, Type destinationType, object sourceObject, ViewResult viewResult)
-        {
-            _sourceType = sourceType;
-            _destinationType = destinationType;
-            _sourceObject = sourceObject;
-            _viewResult = viewResult;
-        }
-
-        public override void ExecuteResult(ControllerContext context)
-        {
-            var viewModel = Mapper.Map(_sourceObject, _sourceType, _destinationType);
-            _viewResult.ViewData.Model = viewModel;
-            _viewResult.ExecuteResult(context);
         }
     }
 }

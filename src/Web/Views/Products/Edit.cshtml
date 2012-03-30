@@ -1,4 +1,9 @@
 ﻿@model Depot.Web.Models.ProductEditModel
+           
+@{
+    ViewBag.Title = "Products: Edit";
+    Layout = "_Products.cshtml";
+}
 
 @section AdditionalJavaScriptImports {
     <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"> </script>
