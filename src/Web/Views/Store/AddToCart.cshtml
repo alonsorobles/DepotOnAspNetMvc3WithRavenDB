@@ -1,12 +1,27 @@
-﻿@model Depot.Web.Controllers.Cart
+﻿@model Depot.Web.Models.Cart
 
 @{
     Layout = "~/Views/Shared/Store.cshtml";
 }
-<h2>Your Pragmatic Cart</h2>
-<ul>
-    @foreach(var item in Model.Items)
+
+<div class="cart-title">Your Cart</div>
+<table>
+    @foreach (var item in Model.Items)
     {
-        <li>@item.Quantity &times; @item.Title</li>
+        <tr>
+            <td>@item.Quantity &times;</td>
+            <td>@item.Title</td>
+            <td class="item-price">$@item.Price</td>
+        </tr>
     }
-</ul>
+    
+    <tr class="total-line">
+        <td colspan="2">Total</td>
+        <td class="total-cell">$@Model.TotalPrice</td>
+    </tr>
+</table>
+
+@using(Html.BeginForm("EmptyCart", "Store"))
+{
+    <input type="submit" value="Empty cart"/>
+}

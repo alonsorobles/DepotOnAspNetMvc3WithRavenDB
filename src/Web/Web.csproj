@@ -101,6 +101,7 @@
     </Compile>
     <Compile Include="Helpers\DeleteLinkHelper.cs" />
     <Compile Include="Helpers\FlashMessageHelper.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\ProductEditModel.cs" />
     <Compile Include="Models\ProductListModel.cs" />
     <Compile Include="Models\ProductShowModel.cs" />

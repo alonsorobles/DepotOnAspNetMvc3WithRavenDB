@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using Depot.Web.Filters;
 using Depot.Web.Helpers;
@@ -33,6 +32,7 @@ namespace Depot.Web.Controllers
             return Session["Cart"] as Cart;
         }
 
+        [HttpPost]
         public ActionResult AddToCart(int id)
         {
             var product = _session.Load<Product>(id);
@@ -42,44 +42,14 @@ namespace Depot.Web.Controllers
             cart.AddProduct(product);
             return View(cart);
         }
-    }
 
-    public class Cart
-    {
-        public Cart()
+        [HttpPost]
+        public ActionResult EmptyCart()
         {
-            Items = new List<CartItem>();
-        }
-
-        public IList<CartItem> Items { get; private set; }
-
-        public void AddProduct(Product product)
-        {
-            var currentCartItem = Items.FirstOrDefault(cartItem => cartItem.Product.Equals(product));
-            if (currentCartItem != null)
-                currentCartItem.IncrementQuantity();
-            else
-                Items.Add(new CartItem(product));
+            Session["Cart"] = null;
+            return RedirectToAction("Index").WithFlash(FlashMessageType.Notice, "Your cart is currently empty");
         }
     }
 
-    public class CartItem
-    {
-        public Product Product { get; private set; }
-        public int Quantity { get; private set; }
-
-        public CartItem(Product product)
-        {
-            Product = product;
-            Quantity = 1;
-        }
-
-        public void IncrementQuantity()
-        {
-            Quantity += 1;
-        }
-
-        public string Title { get { return Product.Title; } }
-        public decimal Price { get { return Product.Price*Quantity; } }
-    }
+    
 }

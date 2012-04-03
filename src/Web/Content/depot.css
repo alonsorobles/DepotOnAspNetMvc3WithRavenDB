@@ -189,15 +189,27 @@ h1 {
   list-style: square;
 }
 
+.cart-title { font: 120% bold;
+}
+.item-price, .total-line { text-align: right;
+}
+.total-line .total-cell { font-weight: bold; border-top: 1px solid #595;
+}
+
 #flash {
-    border: 2px solid; padding: 1em;
-margin-bottom: 2em; background-color: #f0f0f0; font: bold smaller sans-serif;
+    border: 2px solid; 
+    padding: 1em;
+    margin-bottom: 2em; 
+    background-color: #f0f0f0;
+    font: bold smaller sans-serif;
 }
 
 #flash.notice {
     border-color: green;
+    color: black;
 }
 
 #flash.error {
     border-color: red;
+    color: black;
 }
