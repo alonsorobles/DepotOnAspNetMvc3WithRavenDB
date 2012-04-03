@@ -188,3 +188,16 @@ h1 {
   font-size: 12px;
   list-style: square;
 }
+
+#flash {
+    border: 2px solid; padding: 1em;
+margin-bottom: 2em; background-color: #f0f0f0; font: bold smaller sans-serif;
+}
+
+#flash.notice {
+    border-color: green;
+}
+
+#flash.error {
+    border-color: red;
+}

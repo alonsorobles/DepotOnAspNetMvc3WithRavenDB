@@ -1,0 +1,18 @@
+﻿@using Depot.Web.Helpers
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/depot.css")" rel="stylesheet" type="text/css"/>
+</head>
+    <body>
+        @Html.Flash(FlashMessageType.Notice)
+        @Html.Flash(FlashMessageType.Error)
+        @RenderBody()
+        <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/JavaScript/site.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"> </script>
+        @RenderSection("AdditionalJavaScriptImports", false)
+    </body>
+</html>
