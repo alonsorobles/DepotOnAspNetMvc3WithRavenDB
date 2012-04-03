@@ -33,11 +33,11 @@ namespace Depot.Web.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult New(ProductEditModel productEditModel)
         {
+            if (!IsUniqueTitle(productEditModel.Title))
+                ModelState.AddModelError("Title", string.Format("\"{0}\" is alraedy in use.", productEditModel.Title));
             if (!ModelState.IsValid)
-            {
                 return View(productEditModel);
-            }
-
+            
             var product = Mapper.Map<ProductEditModel, Product>(productEditModel);
             _session.Store(product);
 
@@ -53,11 +53,11 @@ namespace Depot.Web.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult Edit(ProductEditModel productEditModel)
         {
+            if (!IsUniqueTitle(productEditModel.Title, productEditModel.Id))
+                ModelState.AddModelError("Title", string.Format("\"{0}\" is alraedy in by another product.", productEditModel.Title));
             if (!ModelState.IsValid)
-            {
                 return AutoMapView<ProductEditModel>(productEditModel, View());
-            }
-
+            
             var product = _session.Load<Product>(productEditModel.Id);
             product.Description = productEditModel.Description;
             product.ImageUrl = productEditModel.ImageUrl;
@@ -81,19 +81,14 @@ namespace Depot.Web.Controllers
             return RedirectToAction("Index").WithFlash(FlashMessageType.Notice, "Product was successfully deleted.");
         }
 
-        public ActionResult ValidateUniqueTitle(string title)
-        {
-            if (!string.IsNullOrWhiteSpace(title))
-            {
-                var isUniqueTitle = IsUniqueTitle(title);
-                return Json(isUniqueTitle, JsonRequestBehavior.AllowGet);
-            }
-            return Json(true, JsonRequestBehavior.AllowGet);
-        }
-
         private bool IsUniqueTitle(string title)
         {
             return !_session.Query<Product>().Any(p => p.Title == title.Trim());
+        }
+
+        private bool IsUniqueTitle(string title, int id)
+        {
+            return !_session.Query<Product>().Any(p => p.Title == title.Trim() && p.Id != id);
         }
     }
 }

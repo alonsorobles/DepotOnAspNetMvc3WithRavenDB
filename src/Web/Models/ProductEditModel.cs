@@ -9,7 +9,6 @@ namespace Depot.Web.Models
         public int Id { get; set; }
         
         [Required]
-        [Remote("ValidateUniqueTitle", "Products", ErrorMessage = "Title is not available.")]
         public string Title { get; set; }
         
         [Required]
@@ -17,7 +16,7 @@ namespace Depot.Web.Models
         public string Description { get; set; }
 
         [Required]
-        [RegularExpression(@"\S+\.(gif|jpg|jpeg|png)$", ErrorMessage = "Must be a URL for GIF, JPG, ir PNG image.")]
+        [RegularExpression(@"\S+\.([Gg][Ii][Ff]|[Jj][Pp][Ee]?[Gg]|[Pp][Nn][Gg])$", ErrorMessage = "Must be a URL for GIF, JPG, ir PNG image.")]
         public string ImageUrl { get; set; }
 
         [GreaterThanOrEqualTo(typeof(decimal), "0.01")]
