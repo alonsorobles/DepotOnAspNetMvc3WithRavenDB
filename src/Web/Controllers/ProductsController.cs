@@ -85,10 +85,15 @@ namespace Depot.Web.Controllers
         {
             if (!string.IsNullOrWhiteSpace(title))
             {
-                var isUniqueTitle = !_session.Query<Product>().Any(p => p.Title == title.Trim());
+                var isUniqueTitle = IsUniqueTitle(title);
                 return Json(isUniqueTitle, JsonRequestBehavior.AllowGet);
             }
             return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
+        private bool IsUniqueTitle(string title)
+        {
+            return !_session.Query<Product>().Any(p => p.Title == title.Trim());
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Depot.Web.Models
         public string Description { get; set; }
 
         [Required]
-        [RegularExpression(@"(?i:\S+\.(gif|jpg|jpeg|png)$)", ErrorMessage = "Must be a URL for GIF, JPG, ir PNG image.")]
+        [RegularExpression(@"\S+\.(gif|jpg|jpeg|png)$", ErrorMessage = "Must be a URL for GIF, JPG, ir PNG image.")]
         public string ImageUrl { get; set; }
 
         [GreaterThanOrEqualTo(typeof(decimal), "0.01")]
