@@ -1,0 +1,12 @@
+﻿@model Depot.Web.Controllers.Cart
+
+@{
+    Layout = "_Store.cshtml";
+}
+<h2>Your Pragmatic Cart</h2>
+<ul>
+    @foreach(var item in Model.Items)
+    {
+        <li>@item.Title</li>
+    }
+</ul>

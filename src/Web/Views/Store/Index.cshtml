@@ -14,7 +14,10 @@
         @Html.Raw(@product.Description)
         <div class="price-line">
             <span class="price">@Html.DisplayFor(modelItem => product.Price)</span>
-            <button>Add to Cart</button>
+            @using (Html.BeginForm("AddToCart", "Store", new {id = product.Id}))
+            {
+                <input type="submit" value="Add to Cart"/>
+            }
         </div>
     </div>
 }
