@@ -45,14 +45,38 @@ namespace Depot.Web.Controllers
     {
         public Cart()
         {
-            Items = new List<Product>();
+            Items = new List<CartItem>();
         }
 
-        public IList<Product> Items { get; private set; }
+        public IList<CartItem> Items { get; private set; }
 
         public void AddProduct(Product product)
         {
-            Items.Add(product);
+            var currentCartItem = Items.FirstOrDefault(cartItem => cartItem.Product.Equals(product));
+            if (currentCartItem != null)
+                currentCartItem.IncrementQuantity();
+            else
+                Items.Add(new CartItem(product));
         }
+    }
+
+    public class CartItem
+    {
+        public Product Product { get; private set; }
+        public int Quantity { get; private set; }
+
+        public CartItem(Product product)
+        {
+            Product = product;
+            Quantity = 1;
+        }
+
+        public void IncrementQuantity()
+        {
+            Quantity += 1;
+        }
+
+        public string Title { get { return Product.Title; } }
+        public decimal Price { get { return Product.Price*Quantity; } }
     }
 }
